@@ -13,11 +13,15 @@ export default class NumbersOfPlayers extends React.Component {
                 <Fade tag="h5" className="mt-3" timeout={1000}>
                     <Row>
 
-                        <Col xl={{ size: 6, offset: 3 , color: "red"}}>
+                        <Col xl={{ size: 6, offset: 3}}>
                             <p>
                                 Сколько игроков?
                             </p>
                         </Col>
+
+                    </Row>
+                    <Row>
+                        <Col sm={{ size: 2, offset: 1}}>
                         <Input
                             type="number"
                             name="number"
@@ -25,6 +29,7 @@ export default class NumbersOfPlayers extends React.Component {
                             placeholder="Введи число"
                             min="1"
                         />
+                        </Col>
                     </Row>
                 </Fade>
             </div>

@@ -209,7 +209,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".greeting {\r\n    font-family: Arial, Helvetica, sans-serif;\r\n    font-size: 1.0em;\r\n}\r\n@media (min-width: 375px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n    }\r\n}\r\n\r\n@media (min-width: 768px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 3em;\r\n    }\r\n}\r\n\r\n@media (min-width: 992px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 450%;\r\n    }\r\n}\r\n\r\n@media (min-width: 1200px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 500%;\r\n    }\r\n}", ""]);
+exports.push([module.i, ".greeting {\r\n    font-family: Arial, Helvetica, sans-serif;\r\n    font-size: 1.3em;\r\n}\r\n.greeting.player_input{\r\n    color: black;\r\n}\r\n@media (min-width: 375px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 3em;\r\n    }\r\n}\r\n\r\n@media (min-width: 768px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 3em;\r\n    }\r\n}\r\n\r\n@media (min-width: 992px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 450%;\r\n    }\r\n}\r\n\r\n@media (min-width: 1200px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 500%;\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -31200,10 +31200,10 @@ var NumbersOfPlayers = /** @class */ (function (_super) {
         return (React.createElement("div", { className: "container" },
             React.createElement(reactstrap_1.Fade, { tag: "h5", className: "mt-3", timeout: 1000 },
                 React.createElement(reactstrap_1.Row, null,
-                    React.createElement(reactstrap_1.Col /*xs, sm,md,lg,xl*/, { xs: { offset: 1 } },
-                        React.createElement("p", { className: "greeting" }, "\u0421\u043A\u043E\u043B\u044C\u043A\u043E \u0438\u0433\u0440\u043E\u043A\u043E\u0432?"))),
+                    React.createElement(reactstrap_1.Col, { xl: { size: 6, offset: 3 } },
+                        React.createElement("p", null, "\u0421\u043A\u043E\u043B\u044C\u043A\u043E \u0438\u0433\u0440\u043E\u043A\u043E\u0432?"))),
                 React.createElement(reactstrap_1.Row, null,
-                    React.createElement(reactstrap_1.Col, null,
+                    React.createElement(reactstrap_1.Col, { sm: { size: 2, offset: 1 } },
                         React.createElement(reactstrap_1.Input, { type: "number", name: "number", id: "countOfPlayers", placeholder: "\u0412\u0432\u0435\u0434\u0438 \u0447\u0438\u0441\u043B\u043E", min: "1" }))))));
     };
     return NumbersOfPlayers;
