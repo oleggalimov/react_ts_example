@@ -1,9 +1,7 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-
-import Footer from './Components/Footer';
-import { Alert } from 'reactstrap';
+import NumbersOfPlayers from './Components/NumbersOfPlayers';
 
 class App extends React.Component {
     constructor(props: String) {
@@ -11,19 +9,15 @@ class App extends React.Component {
     }
     render() {
         return (
-            <Alert>
-                <Footer />
-                </Alert>
+                <NumbersOfPlayers/>
         );
     }
 }
-
-
 ReactDom.render(
-    // <div>
-    //     <App/>
-    //     <Footer/>
-    // </div>
-    <App />
+    <div>
+        <App/>
+        
+    </div>
+    // <App />
     ,document.getElementById('App')
 );
