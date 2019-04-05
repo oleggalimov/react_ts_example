@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import NumbersOfPlayers from './Components/NumbersOfPlayers';
+import Greetings from './Components/Greetings';
 
 class App extends React.Component {
     constructor(props: String) {
@@ -9,7 +10,7 @@ class App extends React.Component {
     }
     render() {
         return (
-                <NumbersOfPlayers/>
+                <Greetings/>
         );
     }
 }

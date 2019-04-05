@@ -209,7 +209,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".greeting {\r\n    font-family: Arial, Helvetica, sans-serif;\r\n    font-size: 1.3em;\r\n}\r\n.greeting.player_input{\r\n    color: black;\r\n}\r\n@media (min-width: 375px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 3em;\r\n    }\r\n}\r\n\r\n@media (min-width: 768px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 3em;\r\n    }\r\n}\r\n\r\n@media (min-width: 992px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 450%;\r\n    }\r\n}\r\n\r\n@media (min-width: 1200px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 500%;\r\n    }\r\n}", ""]);
+exports.push([module.i, ".greeting {\r\n    font-family: Arial, Helvetica, sans-serif;\r\n    font-size: 1.8em;\r\n    margin-top: 40%;\r\n    margin-left: 10%\r\n}\r\n.greeting.button {\r\n    margin-left: 25%;\r\n}\r\n.greeting.player_input{\r\n    color: black;\r\n}\r\n@media (min-width: 375px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 2em;\r\n        margin-top: 30%;\r\n    }\r\n}\r\n\r\n@media (min-width: 768px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 3em;\r\n        margin-top: 30%;\r\n    }\r\n}\r\n\r\n@media (min-width: 992px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 450%;\r\n        margin-top: 30%;\r\n    }\r\n}\r\n\r\n@media (min-width: 1200px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 550%;\r\n        margin-top: 30%;\r\n\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -30586,6 +30586,383 @@ var UncontrolledTooltip = function (_Component) {
 
 /***/ }),
 
+/***/ "./node_modules/reactstrap/lib/Button.js":
+/*!***********************************************!*\
+  !*** ./node_modules/reactstrap/lib/Button.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _classnames = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var _utils = __webpack_require__(/*! ./utils */ "./node_modules/reactstrap/lib/utils.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var propTypes = {
+  active: _propTypes2.default.bool,
+  block: _propTypes2.default.bool,
+  color: _propTypes2.default.string,
+  disabled: _propTypes2.default.bool,
+  outline: _propTypes2.default.bool,
+  tag: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.string]),
+  innerRef: _propTypes2.default.oneOfType([_propTypes2.default.object, _propTypes2.default.func, _propTypes2.default.string]),
+  onClick: _propTypes2.default.func,
+  size: _propTypes2.default.string,
+  children: _propTypes2.default.node,
+  className: _propTypes2.default.string,
+  cssModule: _propTypes2.default.object
+};
+
+var defaultProps = {
+  color: 'secondary',
+  tag: 'button'
+};
+
+var Button = function (_React$Component) {
+  _inherits(Button, _React$Component);
+
+  function Button(props) {
+    _classCallCheck(this, Button);
+
+    var _this = _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).call(this, props));
+
+    _this.onClick = _this.onClick.bind(_this);
+    return _this;
+  }
+
+  _createClass(Button, [{
+    key: 'onClick',
+    value: function onClick(e) {
+      if (this.props.disabled) {
+        e.preventDefault();
+        return;
+      }
+
+      if (this.props.onClick) {
+        this.props.onClick(e);
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          active = _props.active,
+          block = _props.block,
+          className = _props.className,
+          cssModule = _props.cssModule,
+          color = _props.color,
+          outline = _props.outline,
+          size = _props.size,
+          Tag = _props.tag,
+          innerRef = _props.innerRef,
+          attributes = _objectWithoutProperties(_props, ['active', 'block', 'className', 'cssModule', 'color', 'outline', 'size', 'tag', 'innerRef']);
+
+      var classes = (0, _utils.mapToCssModules)((0, _classnames2.default)(className, 'btn', 'btn' + (outline ? '-outline' : '') + '-' + color, size ? 'btn-' + size : false, block ? 'btn-block' : false, { active: active, disabled: this.props.disabled }), cssModule);
+
+      if (attributes.href && Tag === 'button') {
+        Tag = 'a';
+      }
+
+      return _react2.default.createElement(Tag, _extends({
+        type: Tag === 'button' && attributes.onClick ? 'button' : undefined
+      }, attributes, {
+        className: classes,
+        ref: innerRef,
+        onClick: this.onClick
+      }));
+    }
+  }]);
+
+  return Button;
+}(_react2.default.Component);
+
+Button.propTypes = propTypes;
+Button.defaultProps = defaultProps;
+
+exports.default = Button;
+
+/***/ }),
+
+/***/ "./node_modules/reactstrap/lib/utils.js":
+/*!**********************************************!*\
+  !*** ./node_modules/reactstrap/lib/utils.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.defaultToggleEvents = exports.canUseDOM = exports.PopperPlacements = exports.keyCodes = exports.TransitionStatuses = exports.TransitionPropTypeKeys = exports.TransitionTimeouts = undefined;
+exports.getScrollbarWidth = getScrollbarWidth;
+exports.setScrollbarWidth = setScrollbarWidth;
+exports.isBodyOverflowing = isBodyOverflowing;
+exports.getOriginalBodyPadding = getOriginalBodyPadding;
+exports.conditionallyUpdateScrollbar = conditionallyUpdateScrollbar;
+exports.setGlobalCssModule = setGlobalCssModule;
+exports.mapToCssModules = mapToCssModules;
+exports.omit = omit;
+exports.pick = pick;
+exports.warnOnce = warnOnce;
+exports.deprecated = deprecated;
+exports.DOMElement = DOMElement;
+exports.findDOMElements = findDOMElements;
+exports.isArrayOrNodeList = isArrayOrNodeList;
+exports.getTarget = getTarget;
+exports.addMultipleEventListeners = addMultipleEventListeners;
+
+var _lodash = __webpack_require__(/*! lodash.isfunction */ "./node_modules/lodash.isfunction/index.js");
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// https://github.com/twbs/bootstrap/blob/v4.0.0-alpha.4/js/src/modal.js#L436-L443
+function getScrollbarWidth() {
+  var scrollDiv = document.createElement('div');
+  // .modal-scrollbar-measure styles // https://github.com/twbs/bootstrap/blob/v4.0.0-alpha.4/scss/_modal.scss#L106-L113
+  scrollDiv.style.position = 'absolute';
+  scrollDiv.style.top = '-9999px';
+  scrollDiv.style.width = '50px';
+  scrollDiv.style.height = '50px';
+  scrollDiv.style.overflow = 'scroll';
+  document.body.appendChild(scrollDiv);
+  var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+  document.body.removeChild(scrollDiv);
+  return scrollbarWidth;
+}
+
+function setScrollbarWidth(padding) {
+  document.body.style.paddingRight = padding > 0 ? padding + 'px' : null;
+}
+
+function isBodyOverflowing() {
+  return document.body.clientWidth < window.innerWidth;
+}
+
+function getOriginalBodyPadding() {
+  var style = window.getComputedStyle(document.body, null);
+
+  return parseInt(style && style.getPropertyValue('padding-right') || 0, 10);
+}
+
+function conditionallyUpdateScrollbar() {
+  var scrollbarWidth = getScrollbarWidth();
+  // https://github.com/twbs/bootstrap/blob/v4.0.0-alpha.6/js/src/modal.js#L433
+  var fixedContent = document.querySelectorAll('.fixed-top, .fixed-bottom, .is-fixed, .sticky-top')[0];
+  var bodyPadding = fixedContent ? parseInt(fixedContent.style.paddingRight || 0, 10) : 0;
+
+  if (isBodyOverflowing()) {
+    setScrollbarWidth(bodyPadding + scrollbarWidth);
+  }
+}
+
+var globalCssModule = void 0;
+
+function setGlobalCssModule(cssModule) {
+  globalCssModule = cssModule;
+}
+
+function mapToCssModules() {
+  var className = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var cssModule = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : globalCssModule;
+
+  if (!cssModule) return className;
+  return className.split(' ').map(function (c) {
+    return cssModule[c] || c;
+  }).join(' ');
+}
+
+/**
+ * Returns a new object with the key/value pairs from `obj` that are not in the array `omitKeys`.
+ */
+function omit(obj, omitKeys) {
+  var result = {};
+  Object.keys(obj).forEach(function (key) {
+    if (omitKeys.indexOf(key) === -1) {
+      result[key] = obj[key];
+    }
+  });
+  return result;
+}
+
+/**
+ * Returns a filtered copy of an object with only the specified keys.
+ */
+function pick(obj, keys) {
+  var pickKeys = Array.isArray(keys) ? keys : [keys];
+  var length = pickKeys.length;
+  var key = void 0;
+  var result = {};
+
+  while (length > 0) {
+    length -= 1;
+    key = pickKeys[length];
+    result[key] = obj[key];
+  }
+  return result;
+}
+
+var warned = {};
+
+function warnOnce(message) {
+  if (!warned[message]) {
+    /* istanbul ignore else */
+    if (typeof console !== 'undefined') {
+      console.error(message); // eslint-disable-line no-console
+    }
+    warned[message] = true;
+  }
+}
+
+function deprecated(propType, explanation) {
+  return function validate(props, propName, componentName) {
+    if (props[propName] !== null && typeof props[propName] !== 'undefined') {
+      warnOnce('"' + propName + '" property of "' + componentName + '" has been deprecated.\n' + explanation);
+    }
+
+    for (var _len = arguments.length, rest = Array(_len > 3 ? _len - 3 : 0), _key = 3; _key < _len; _key++) {
+      rest[_key - 3] = arguments[_key];
+    }
+
+    return propType.apply(undefined, [props, propName, componentName].concat(rest));
+  };
+}
+
+function DOMElement(props, propName, componentName) {
+  if (!(props[propName] instanceof Element)) {
+    return new Error('Invalid prop `' + propName + '` supplied to `' + componentName + '`. Expected prop to be an instance of Element. Validation failed.');
+  }
+}
+
+/* eslint key-spacing: ["error", { afterColon: true, align: "value" }] */
+// These are all setup to match what is in the bootstrap _variables.scss
+// https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss
+var TransitionTimeouts = exports.TransitionTimeouts = {
+  Fade: 150, // $transition-fade
+  Collapse: 350, // $transition-collapse
+  Modal: 300, // $modal-transition
+  Carousel: 600 // $carousel-transition
+};
+
+// Duplicated Transition.propType keys to ensure that Reactstrap builds
+// for distribution properly exclude these keys for nested child HTML attributes
+// since `react-transition-group` removes propTypes in production builds.
+var TransitionPropTypeKeys = exports.TransitionPropTypeKeys = ['in', 'mountOnEnter', 'unmountOnExit', 'appear', 'enter', 'exit', 'timeout', 'onEnter', 'onEntering', 'onEntered', 'onExit', 'onExiting', 'onExited'];
+
+var TransitionStatuses = exports.TransitionStatuses = {
+  ENTERING: 'entering',
+  ENTERED: 'entered',
+  EXITING: 'exiting',
+  EXITED: 'exited'
+};
+
+var keyCodes = exports.keyCodes = {
+  esc: 27,
+  space: 32,
+  tab: 9,
+  up: 38,
+  down: 40
+};
+
+var PopperPlacements = exports.PopperPlacements = ['auto-start', 'auto', 'auto-end', 'top-start', 'top', 'top-end', 'right-start', 'right', 'right-end', 'bottom-end', 'bottom', 'bottom-start', 'left-end', 'left', 'left-start'];
+
+var canUseDOM = exports.canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+
+function findDOMElements(target) {
+  if ((0, _lodash2.default)(target)) {
+    return target();
+  }
+  if (typeof target === 'string' && canUseDOM) {
+    var selection = document.querySelectorAll(target);
+    if (!selection.length) {
+      selection = document.querySelectorAll('#' + target);
+    }
+    if (!selection.length) {
+      throw new Error('The target \'' + target + '\' could not be identified in the dom, tip: check spelling');
+    }
+    return selection;
+  }
+  return target;
+}
+
+function isArrayOrNodeList(els) {
+  return Array.isArray(els) || canUseDOM && typeof els.length === 'number';
+}
+
+function getTarget(target) {
+  var els = findDOMElements(target);
+  if (isArrayOrNodeList(els)) {
+    return els[0];
+  }
+  return els;
+}
+
+var defaultToggleEvents = exports.defaultToggleEvents = ['touchstart', 'click'];
+
+function addMultipleEventListeners(_els, handler, _events) {
+  var els = _els;
+  if (!isArrayOrNodeList(els)) {
+    els = [els];
+  }
+
+  var events = _events;
+  if (typeof events === 'string') {
+    events = events.split(/\s+/);
+  }
+
+  if (!isArrayOrNodeList(els) || typeof handler !== 'function' || !Array.isArray(events)) {
+    throw new Error('\n      The first argument of this function must be DOM node or an array on DOM nodes or NodeList.\n      The second must be a function.\n      The third is a string or an array of strings that represents DOM events\n    ');
+  }
+  events.forEach(function (event) {
+    els.forEach(function (el) {
+      el.addEventListener(event, handler);
+    });
+  });
+  return function removeEvents() {
+    events.forEach(function (event) {
+      els.forEach(function (el) {
+        el.removeEventListener(event, handler);
+      });
+    });
+  };
+}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/lib/addStyles.js":
 /*!****************************************************!*\
   !*** ./node_modules/style-loader/lib/addStyles.js ***!
@@ -31141,14 +31518,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var ReactDom = __importStar(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
 __webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
-var NumbersOfPlayers_1 = __importDefault(__webpack_require__(/*! ./Components/NumbersOfPlayers */ "./src/Components/NumbersOfPlayers.tsx"));
+var Greetings_1 = __importDefault(__webpack_require__(/*! ./Components/Greetings */ "./src/Components/Greetings.tsx"));
 var App = /** @class */ (function (_super) {
     __extends(App, _super);
     function App(props) {
         return _super.call(this, props) || this;
     }
     App.prototype.render = function () {
-        return (React.createElement(NumbersOfPlayers_1.default, null));
+        return (React.createElement(Greetings_1.default, null));
     };
     return App;
 }(React.Component));
@@ -31160,10 +31537,10 @@ ReactDom.render(React.createElement("div", null,
 
 /***/ }),
 
-/***/ "./src/Components/NumbersOfPlayers.tsx":
-/*!*********************************************!*\
-  !*** ./src/Components/NumbersOfPlayers.tsx ***!
-  \*********************************************/
+/***/ "./src/Components/Greetings.tsx":
+/*!**************************************!*\
+  !*** ./src/Components/Greetings.tsx ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31186,29 +31563,42 @@ var __importStar = (this && this.__importStar) || function (mod) {
     result["default"] = mod;
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 __webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
 var reactstrap_1 = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.es.js");
 __webpack_require__(/*! ../Styles/AlignCenter.css */ "./src/Styles/AlignCenter.css");
-var NumbersOfPlayers = /** @class */ (function (_super) {
-    __extends(NumbersOfPlayers, _super);
-    function NumbersOfPlayers(props) {
-        return _super.call(this, props) || this;
+var Button_1 = __importDefault(__webpack_require__(/*! reactstrap/lib/Button */ "./node_modules/reactstrap/lib/Button.js"));
+var Greetings = /** @class */ (function (_super) {
+    __extends(Greetings, _super);
+    function Greetings(props) {
+        var _this = _super.call(this, props) || this;
+        _this.state = { fadeIn: true };
+        _this.toggle = _this.toggle.bind(_this);
+        return _this;
     }
-    NumbersOfPlayers.prototype.render = function () {
-        return (React.createElement("div", { className: "container" },
-            React.createElement(reactstrap_1.Fade, { tag: "h5", className: "mt-3", timeout: 1000 },
-                React.createElement(reactstrap_1.Row, null,
-                    React.createElement(reactstrap_1.Col, { xl: { size: 6, offset: 3 } },
-                        React.createElement("p", null, "\u0421\u043A\u043E\u043B\u044C\u043A\u043E \u0438\u0433\u0440\u043E\u043A\u043E\u0432?"))),
-                React.createElement(reactstrap_1.Row, null,
-                    React.createElement(reactstrap_1.Col, { sm: { size: 2, offset: 1 } },
-                        React.createElement(reactstrap_1.Input, { type: "number", name: "number", id: "countOfPlayers", placeholder: "\u0412\u0432\u0435\u0434\u0438 \u0447\u0438\u0441\u043B\u043E", min: "1" }))))));
+    Greetings.prototype.toggle = function () {
+        this.setState({
+            fadeIn: !this.state.fadeIn
+        });
     };
-    return NumbersOfPlayers;
+    Greetings.prototype.render = function () {
+        return (React.createElement("div", { className: "container" },
+            React.createElement(reactstrap_1.Fade, { in: this.state.fadeIn, tag: "h1", className: "greeting", timeout: 1000 },
+                React.createElement(reactstrap_1.Row, null,
+                    React.createElement(reactstrap_1.Col, null,
+                        React.createElement("p", null, "\u041F\u0440\u0438\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044E \u0412\u0430\u0441!"))),
+                React.createElement(reactstrap_1.Fade, { in: this.state.fadeIn, className: "mt-3 greeting button", timeout: 2000 },
+                    React.createElement(reactstrap_1.Row, null,
+                        React.createElement(reactstrap_1.Col, null,
+                            React.createElement(Button_1.default, { color: "primary", onClick: this.toggle, size: "lg" }, "\u041F\u0440\u0438\u0432\u0435\u0442")))))));
+    };
+    return Greetings;
 }(React.Component));
-exports.default = NumbersOfPlayers;
+exports.default = Greetings;
 
 
 /***/ }),
