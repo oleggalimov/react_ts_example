@@ -292,9 +292,9 @@ exports.push([module.i, "/*!\n * Bootstrap v4.3.1 (https://getbootstrap.com/)\n 
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js!./src/Styles/AlignCenter.css":
+/***/ "./node_modules/css-loader/index.js!./src/styles/AlignCenter.css":
 /*!**************************************************************!*\
-  !*** ./node_modules/css-loader!./src/Styles/AlignCenter.css ***!
+  !*** ./node_modules/css-loader!./src/styles/AlignCenter.css ***!
   \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -36075,36 +36075,6 @@ ReactDom.render(React.createElement(App, null), document.getElementById('App'));
 
 /***/ }),
 
-/***/ "./src/Styles/AlignCenter.css":
-/*!************************************!*\
-  !*** ./src/Styles/AlignCenter.css ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../node_modules/css-loader!./AlignCenter.css */ "./node_modules/css-loader/index.js!./src/Styles/AlignCenter.css");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
 /***/ "./src/actions/NextStep.tsx":
 /*!**********************************!*\
   !*** ./src/actions/NextStep.tsx ***!
@@ -36184,7 +36154,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 __webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
 var reactstrap_1 = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.es.js");
-__webpack_require__(/*! ../Styles/AlignCenter.css */ "./src/Styles/AlignCenter.css");
+__webpack_require__(/*! ../styles/AlignCenter.css */ "./src/styles/AlignCenter.css");
 var Button_1 = __importDefault(__webpack_require__(/*! reactstrap/lib/Button */ "./node_modules/reactstrap/lib/Button.js"));
 var NextStep_1 = __importDefault(__webpack_require__(/*! ../actions/NextStep */ "./src/actions/NextStep.tsx"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
@@ -36324,7 +36294,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 __webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
 var reactstrap_1 = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.es.js");
-__webpack_require__(/*! ../Styles/AlignCenter.css */ "./src/Styles/AlignCenter.css");
+__webpack_require__(/*! ../styles/AlignCenter.css */ "./src/styles/AlignCenter.css");
 var NextStep_1 = __importDefault(__webpack_require__(/*! ../actions/NextStep */ "./src/actions/NextStep.tsx"));
 var SetNumbersOfPlayers_1 = __importDefault(__webpack_require__(/*! ../actions/SetNumbersOfPlayers */ "./src/actions/SetNumbersOfPlayers.tsx"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
@@ -36454,6 +36424,36 @@ exports.default = (function () {
     return store;
 });
 
+
+/***/ }),
+
+/***/ "./src/styles/AlignCenter.css":
+/*!************************************!*\
+  !*** ./src/styles/AlignCenter.css ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader!./AlignCenter.css */ "./node_modules/css-loader/index.js!./src/styles/AlignCenter.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
 
 /***/ })
 
