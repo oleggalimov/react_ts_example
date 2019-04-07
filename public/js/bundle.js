@@ -36047,8 +36047,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var ReactDom = __importStar(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
 __webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
-var MainFlow_1 = __importDefault(__webpack_require__(/*! ./Components/MainFlow */ "./src/Components/MainFlow.tsx"));
-var Configstore_1 = __importDefault(__webpack_require__(/*! ./Store/Configstore */ "./src/Store/Configstore.tsx"));
+var MainFlow_1 = __importDefault(__webpack_require__(/*! ./components/MainFlow */ "./src/components/MainFlow.tsx"));
+var Configstore_1 = __importDefault(__webpack_require__(/*! ./store/Configstore */ "./src/store/Configstore.tsx"));
 var NextStep_1 = __importDefault(__webpack_require__(/*! ./actions/NextStep */ "./src/actions/NextStep.tsx"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var store = Configstore_1.default();
@@ -36075,9 +36075,77 @@ ReactDom.render(React.createElement(App, null), document.getElementById('App'));
 
 /***/ }),
 
-/***/ "./src/Components/Greetings.tsx":
+/***/ "./src/Styles/AlignCenter.css":
+/*!************************************!*\
+  !*** ./src/Styles/AlignCenter.css ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader!./AlignCenter.css */ "./node_modules/css-loader/index.js!./src/Styles/AlignCenter.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./src/actions/NextStep.tsx":
+/*!**********************************!*\
+  !*** ./src/actions/NextStep.tsx ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var NextStepAction = function (step) { return ({
+    type: 'step',
+    step: step
+}); };
+exports.default = NextStepAction;
+
+
+/***/ }),
+
+/***/ "./src/actions/SetNumbersOfPlayers.tsx":
+/*!*********************************************!*\
+  !*** ./src/actions/SetNumbersOfPlayers.tsx ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var SetNumbersOfPlayersAction = function (playersCount) { return ({
+    type: 'playersCounter',
+    playersCounter: playersCount
+}); };
+exports.default = SetNumbersOfPlayersAction;
+
+
+/***/ }),
+
+/***/ "./src/components/Greetings.tsx":
 /*!**************************************!*\
-  !*** ./src/Components/Greetings.tsx ***!
+  !*** ./src/components/Greetings.tsx ***!
   \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -36158,9 +36226,9 @@ exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Gre
 
 /***/ }),
 
-/***/ "./src/Components/MainFlow.tsx":
+/***/ "./src/components/MainFlow.tsx":
 /*!*************************************!*\
-  !*** ./src/Components/MainFlow.tsx ***!
+  !*** ./src/components/MainFlow.tsx ***!
   \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -36190,8 +36258,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var Greetings_1 = __importDefault(__webpack_require__(/*! ./Greetings */ "./src/Components/Greetings.tsx"));
-var NumbersOfPlayers_1 = __importDefault(__webpack_require__(/*! ./NumbersOfPlayers */ "./src/Components/NumbersOfPlayers.tsx"));
+var Greetings_1 = __importDefault(__webpack_require__(/*! ./Greetings */ "./src/components/Greetings.tsx"));
+var NumbersOfPlayers_1 = __importDefault(__webpack_require__(/*! ./NumbersOfPlayers */ "./src/components/NumbersOfPlayers.tsx"));
 var NextStep_1 = __importDefault(__webpack_require__(/*! ../actions/NextStep */ "./src/actions/NextStep.tsx"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
@@ -36215,9 +36283,9 @@ exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Mai
 
 /***/ }),
 
-/***/ "./src/Components/NumbersOfPlayers.tsx":
+/***/ "./src/components/NumbersOfPlayers.tsx":
 /*!*********************************************!*\
-  !*** ./src/Components/NumbersOfPlayers.tsx ***!
+  !*** ./src/components/NumbersOfPlayers.tsx ***!
   \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -36323,98 +36391,6 @@ exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Num
 
 /***/ }),
 
-/***/ "./src/Store/Configstore.tsx":
-/*!***********************************!*\
-  !*** ./src/Store/Configstore.tsx ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-var Step_1 = __webpack_require__(/*! ../reducers/Step */ "./src/reducers/Step.tsx");
-var NumberOfPlayers_1 = __webpack_require__(/*! ../reducers/NumberOfPlayers */ "./src/reducers/NumberOfPlayers.tsx");
-exports.default = (function () {
-    var store = redux_1.createStore(redux_1.combineReducers({
-        step: Step_1.step_reducer,
-        players: NumberOfPlayers_1.numberofplayers_reducer
-    }));
-    return store;
-});
-
-
-/***/ }),
-
-/***/ "./src/Styles/AlignCenter.css":
-/*!************************************!*\
-  !*** ./src/Styles/AlignCenter.css ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../node_modules/css-loader!./AlignCenter.css */ "./node_modules/css-loader/index.js!./src/Styles/AlignCenter.css");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./src/actions/NextStep.tsx":
-/*!**********************************!*\
-  !*** ./src/actions/NextStep.tsx ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var NextStepAction = function (step) { return ({
-    type: 'step',
-    step: step
-}); };
-exports.default = NextStepAction;
-
-
-/***/ }),
-
-/***/ "./src/actions/SetNumbersOfPlayers.tsx":
-/*!*********************************************!*\
-  !*** ./src/actions/SetNumbersOfPlayers.tsx ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var SetNumbersOfPlayersAction = function (playersCount) { return ({
-    type: 'playersCounter',
-    playersCounter: playersCount
-}); };
-exports.default = SetNumbersOfPlayersAction;
-
-
-/***/ }),
-
 /***/ "./src/reducers/NumberOfPlayers.tsx":
 /*!******************************************!*\
   !*** ./src/reducers/NumberOfPlayers.tsx ***!
@@ -36453,6 +36429,30 @@ exports.step_reducer = function (state, action) {
         default: return state;
     }
 };
+
+
+/***/ }),
+
+/***/ "./src/store/Configstore.tsx":
+/*!***********************************!*\
+  !*** ./src/store/Configstore.tsx ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+var Step_1 = __webpack_require__(/*! ../reducers/Step */ "./src/reducers/Step.tsx");
+var NumberOfPlayers_1 = __webpack_require__(/*! ../reducers/NumberOfPlayers */ "./src/reducers/NumberOfPlayers.tsx");
+exports.default = (function () {
+    var store = redux_1.createStore(redux_1.combineReducers({
+        step: Step_1.step_reducer,
+        players: NumberOfPlayers_1.numberofplayers_reducer
+    }));
+    return store;
+});
 
 
 /***/ })
