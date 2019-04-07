@@ -21,6 +21,7 @@ class Greetings extends React.Component<Props, StateProps> {
         });
         this.props.NextStep("NUMBEROFPLAYERS");
     }
+    
     render() {
         return (
             <div className="container">

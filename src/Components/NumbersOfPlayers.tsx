@@ -9,7 +9,6 @@ import { Dispatch, bindActionCreators } from 'redux';
 import { FiPlusSquare, FiMinusSquare, FiCheckSquare } from "react-icons/fi";
 import { IconContext } from "react-icons";
 
-
 class NumbersOfPlayers extends React.Component<Props, StateProps> {
     constructor(props: any) {
         super(props);
