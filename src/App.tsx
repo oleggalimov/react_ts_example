@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-import MainFlow from './Components/MainFlow';
-import Configstore from './Store/Configstore';
+import MainFlow from './components/MainFlow';
+import Configstore from './store/Configstore';
 import NextStep from './actions/NextStep';
 import { Provider } from 'react-redux';
 

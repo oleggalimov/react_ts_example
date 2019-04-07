@@ -1,5 +1,4 @@
 import React from "react";
-import { Provider } from "react-redux";
 import Greetings from './Greetings';
 import NumbersOfPlayers from './NumbersOfPlayers';
 
