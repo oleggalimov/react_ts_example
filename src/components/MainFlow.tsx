@@ -1,6 +1,6 @@
 import React from "react";
-import Greetings from "./Greetings";
-import NumbersOfPlayers from './NumbersOfPlayers';
+// import Greetings from "./Greetings";
+// import NumbersOfPlayers from './NumbersOfPlayers';
 
 import NextStep from '../actions/NextStep';
 import { connect } from 'react-redux';
@@ -13,8 +13,8 @@ class Mainflow extends React.Component<Props, StateProps>  {
         return (
             
                 <div>
-                    {this.props.step=="GREETINGS" && <Greetings />}
-                    {this.props.step=="NUMBEROFPLAYERS" && <NumbersOfPlayers />}
+                    {/* {this.props.step=="GREETINGS" && <Greetings />} */}
+                    {/* {this.props.step=="NUMBEROFPLAYERS" && <NumbersOfPlayers />} */}
                 </div>
         );
     };
