@@ -18,6 +18,7 @@ class Mainflow extends React.Component<Props, StateProps>  {
     };
 }
 
+
 const mapStateToProps = (state: any) => ({ step:state.step });
 
 interface DispatchProps {
