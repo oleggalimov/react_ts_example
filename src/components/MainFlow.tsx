@@ -1,6 +1,7 @@
 import React from "react";
 import Greetings from "./Greetings";
 import NumbersOfPlayers from "./NumbersOfPlayers";
+import SetPlayersList from "./SetPlayersList";
 import NextStep from '../actions/NextStep';
 import { connect } from 'react-redux';
 import { Dispatch, bindActionCreators } from 'redux';
@@ -13,6 +14,7 @@ class Mainflow extends React.Component<Props, StateProps>  {
                 <div>
                     {this.props.step=="GREETINGS" && <Greetings />}
                     {this.props.step=="NUMBEROFPLAYERS" && <NumbersOfPlayers />}
+                    {this.props.step=="NAMESOFPLAYERS" && <SetPlayersList />}
                 </div>
         );
     };

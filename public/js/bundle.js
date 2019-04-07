@@ -36023,16 +36023,6 @@ module.exports = function(originalModule) {
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
@@ -36044,32 +36034,30 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var ReactDom = __importStar(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
+const React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const ReactDom = __importStar(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
 __webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
-var MainFlow_1 = __importDefault(__webpack_require__(/*! ./components/MainFlow */ "./src/components/MainFlow.tsx"));
-var Configstore_1 = __importDefault(__webpack_require__(/*! ./store/Configstore */ "./src/store/Configstore.tsx"));
-var NextStep_1 = __importDefault(__webpack_require__(/*! ./actions/NextStep */ "./src/actions/NextStep.tsx"));
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-var store = Configstore_1.default();
-store.subscribe(function () {
-    console.log("Current store: " + JSON.stringify(store.getState()));
+const MainFlow_1 = __importDefault(__webpack_require__(/*! ./components/MainFlow */ "./src/components/MainFlow.tsx"));
+const Configstore_1 = __importDefault(__webpack_require__(/*! ./store/Configstore */ "./src/store/Configstore.tsx"));
+const NextStep_1 = __importDefault(__webpack_require__(/*! ./actions/NextStep */ "./src/actions/NextStep.tsx"));
+const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const store = Configstore_1.default();
+store.subscribe(() => {
+    console.log(`Current store: ${JSON.stringify(store.getState())}`);
 });
-var App = /** @class */ (function (_super) {
-    __extends(App, _super);
-    function App(props) {
-        return _super.call(this, props) || this;
+class App extends React.Component {
+    constructor(props) {
+        super(props);
     }
-    App.prototype.render = function () {
+    render() {
         if (store.getState().step == null) {
-            console.log("First time");
+            console.log(`First time`);
             store.dispatch(NextStep_1.default("GREETINGS"));
         }
         return (React.createElement(react_redux_1.Provider, { store: store },
             React.createElement(MainFlow_1.default, null)));
-    };
-    return App;
-}(React.Component));
+    }
+}
 ReactDom.render(React.createElement(App, null), document.getElementById('App'));
 
 
@@ -36085,10 +36073,10 @@ ReactDom.render(React.createElement(App, null), document.getElementById('App'));
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var NextStepAction = function (step) { return ({
+const NextStepAction = (step) => ({
     type: 'step',
     step: step
-}); };
+});
 exports.default = NextStepAction;
 
 
@@ -36104,11 +36092,30 @@ exports.default = NextStepAction;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var SetNumbersOfPlayersAction = function (playersCount) { return ({
+const SetNumbersOfPlayersAction = (playersCount) => ({
     type: 'playersCounter',
     playersCounter: playersCount
-}); };
+});
 exports.default = SetNumbersOfPlayersAction;
+
+
+/***/ }),
+
+/***/ "./src/actions/SetPlayers.tsx":
+/*!************************************!*\
+  !*** ./src/actions/SetPlayers.tsx ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const SetPlayersAction = (playersProps) => ({
+    type: 'players',
+    players: playersProps
+});
+exports.default = SetPlayersAction;
 
 
 /***/ }),
@@ -36122,24 +36129,6 @@ exports.default = SetNumbersOfPlayersAction;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
-};
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
@@ -36151,31 +36140,29 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 __webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
-var reactstrap_1 = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.es.js");
+const reactstrap_1 = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.es.js");
 __webpack_require__(/*! ../styles/AlignCenter.css */ "./src/styles/AlignCenter.css");
-var Button_1 = __importDefault(__webpack_require__(/*! reactstrap/lib/Button */ "./node_modules/reactstrap/lib/Button.js"));
-var NextStep_1 = __importDefault(__webpack_require__(/*! ../actions/NextStep */ "./src/actions/NextStep.tsx"));
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-var redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-var Greetings = /** @class */ (function (_super) {
-    __extends(Greetings, _super);
-    function Greetings(props) {
-        var _this = _super.call(this, props) || this;
-        _this.state = {
-            fadeIn: _this.props.step == "GREETINGS" ? true : false
+const Button_1 = __importDefault(__webpack_require__(/*! reactstrap/lib/Button */ "./node_modules/reactstrap/lib/Button.js"));
+const NextStep_1 = __importDefault(__webpack_require__(/*! ../actions/NextStep */ "./src/actions/NextStep.tsx"));
+const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+class Greetings extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            fadeIn: this.props.step == "GREETINGS" ? true : false
         };
-        _this.toggle = _this.toggle.bind(_this);
-        return _this;
+        this.toggle = this.toggle.bind(this);
     }
-    Greetings.prototype.toggle = function () {
+    toggle() {
         this.setState({
             fadeIn: !this.state.fadeIn
         });
         this.props.NextStep("NUMBEROFPLAYERS");
-    };
-    Greetings.prototype.render = function () {
+    }
+    render() {
         return (React.createElement("div", { className: "container" },
             React.createElement(reactstrap_1.Fade, { in: this.props.step == "GREETINGS" ? true : false, tag: "h1", className: "greeting", timeout: 1000 },
                 React.createElement(reactstrap_1.Row, null,
@@ -36185,12 +36172,11 @@ var Greetings = /** @class */ (function (_super) {
                     React.createElement(reactstrap_1.Row, null,
                         React.createElement(reactstrap_1.Col, null,
                             React.createElement(Button_1.default, { color: "primary", onClick: this.toggle, size: "lg" }, "\u041F\u0440\u0438\u0432\u0435\u0442")))))));
-    };
-    return Greetings;
-}(React.Component));
+    }
+}
 //
-var mapStateToProps = function (state) { return ({ step: state.step }); };
-var mapDispatchToProps = function (dispatch) { return (__assign({}, redux_1.bindActionCreators({ NextStep: NextStep_1.default }, dispatch))); };
+const mapStateToProps = (state) => ({ step: state.step });
+const mapDispatchToProps = (dispatch) => (Object.assign({}, redux_1.bindActionCreators({ NextStep: NextStep_1.default }, dispatch)));
 exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Greetings);
 
 
@@ -36205,49 +36191,28 @@ exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Gre
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var Greetings_1 = __importDefault(__webpack_require__(/*! ./Greetings */ "./src/components/Greetings.tsx"));
-var NumbersOfPlayers_1 = __importDefault(__webpack_require__(/*! ./NumbersOfPlayers */ "./src/components/NumbersOfPlayers.tsx"));
-var NextStep_1 = __importDefault(__webpack_require__(/*! ../actions/NextStep */ "./src/actions/NextStep.tsx"));
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-var redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-var Mainflow = /** @class */ (function (_super) {
-    __extends(Mainflow, _super);
-    function Mainflow() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    Mainflow.prototype.render = function () {
+const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const Greetings_1 = __importDefault(__webpack_require__(/*! ./Greetings */ "./src/components/Greetings.tsx"));
+const NumbersOfPlayers_1 = __importDefault(__webpack_require__(/*! ./NumbersOfPlayers */ "./src/components/NumbersOfPlayers.tsx"));
+const SetPlayersList_1 = __importDefault(__webpack_require__(/*! ./SetPlayersList */ "./src/components/SetPlayersList.tsx"));
+const NextStep_1 = __importDefault(__webpack_require__(/*! ../actions/NextStep */ "./src/actions/NextStep.tsx"));
+const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+class Mainflow extends react_1.default.Component {
+    render() {
         return (react_1.default.createElement("div", null,
             this.props.step == "GREETINGS" && react_1.default.createElement(Greetings_1.default, null),
-            this.props.step == "NUMBEROFPLAYERS" && react_1.default.createElement(NumbersOfPlayers_1.default, null)));
-    };
+            this.props.step == "NUMBEROFPLAYERS" && react_1.default.createElement(NumbersOfPlayers_1.default, null),
+            this.props.step == "NAMESOFPLAYERS" && react_1.default.createElement(SetPlayersList_1.default, null)));
+    }
     ;
-    return Mainflow;
-}(react_1.default.Component));
-var mapStateToProps = function (state) { return ({ step: state.step }); };
-var mapDispatchToProps = function (dispatch) { return (__assign({}, redux_1.bindActionCreators({ NextStep: NextStep_1.default }, dispatch))); };
+}
+const mapStateToProps = (state) => ({ step: state.step });
+const mapDispatchToProps = (dispatch) => (Object.assign({}, redux_1.bindActionCreators({ NextStep: NextStep_1.default }, dispatch)));
 exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Mainflow);
 
 
@@ -36262,24 +36227,6 @@ exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Mai
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
-};
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
@@ -36291,27 +36238,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 __webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
-var reactstrap_1 = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.es.js");
+const reactstrap_1 = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.es.js");
 __webpack_require__(/*! ../styles/AlignCenter.css */ "./src/styles/AlignCenter.css");
-var NextStep_1 = __importDefault(__webpack_require__(/*! ../actions/NextStep */ "./src/actions/NextStep.tsx"));
-var SetNumbersOfPlayers_1 = __importDefault(__webpack_require__(/*! ../actions/SetNumbersOfPlayers */ "./src/actions/SetNumbersOfPlayers.tsx"));
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-var redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-var fi_1 = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.js");
-var react_icons_1 = __webpack_require__(/*! react-icons */ "./node_modules/react-icons/lib/index.js");
-var NumbersOfPlayers = /** @class */ (function (_super) {
-    __extends(NumbersOfPlayers, _super);
-    function NumbersOfPlayers(props) {
-        var _this = _super.call(this, props) || this;
-        _this.state = {
-            fadeIn: _this.props.step == "NUMBEROFPLAYERS" ? true : false,
+const NextStep_1 = __importDefault(__webpack_require__(/*! ../actions/NextStep */ "./src/actions/NextStep.tsx"));
+const SetNumbersOfPlayers_1 = __importDefault(__webpack_require__(/*! ../actions/SetNumbersOfPlayers */ "./src/actions/SetNumbersOfPlayers.tsx"));
+const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+const fi_1 = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.js");
+const react_icons_1 = __webpack_require__(/*! react-icons */ "./node_modules/react-icons/lib/index.js");
+class NumbersOfPlayers extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            fadeIn: this.props.step == "NUMBEROFPLAYERS" ? true : false,
             counter: 0
         };
-        return _this;
     }
-    NumbersOfPlayers.prototype.handleClick = function (type) {
+    handleClick(type) {
         switch (type) {
             case "Increment":
                 this.state.counter < 8 ? this.setState({ counter: this.state.counter + 1 }) : null;
@@ -36328,9 +36273,8 @@ var NumbersOfPlayers = /** @class */ (function (_super) {
             default:
                 break;
         }
-    };
-    NumbersOfPlayers.prototype.render = function () {
-        var _this = this;
+    }
+    render() {
         return (React.createElement("div", { className: "container" },
             React.createElement(reactstrap_1.Fade, { in: this.props.step == "NUMBEROFPLAYERS" ? true : false, tag: "h5", className: "mt-3", timeout: 1000 },
                 React.createElement(reactstrap_1.Row, null,
@@ -36342,21 +36286,104 @@ var NumbersOfPlayers = /** @class */ (function (_super) {
                 React.createElement(reactstrap_1.Row, null,
                     React.createElement(reactstrap_1.Col, null,
                         React.createElement(react_icons_1.IconContext.Provider, { value: { color: "green", className: "playerscounter button add" } },
-                            React.createElement(fi_1.FiPlusSquare, { onClick: function () { return _this.handleClick("Increment"); } })))),
+                            React.createElement(fi_1.FiPlusSquare, { onClick: () => this.handleClick("Increment") })))),
                 React.createElement(reactstrap_1.Row, null,
                     React.createElement(reactstrap_1.Col, null,
                         React.createElement(react_icons_1.IconContext.Provider, { value: { color: "green", className: "playerscounter button add" } },
-                            React.createElement(fi_1.FiMinusSquare, { onClick: function () { return _this.handleClick("Decrement"); } })))),
+                            React.createElement(fi_1.FiMinusSquare, { onClick: () => this.handleClick("Decrement") })))),
                 React.createElement(reactstrap_1.Row, null,
                     React.createElement(reactstrap_1.Col, null,
                         React.createElement(react_icons_1.IconContext.Provider, { value: { color: "blue", className: "playerscounter button add" } },
-                            React.createElement(fi_1.FiCheckSquare, { onClick: function () { return _this.handleClick("Confirm"); } })))))));
-    };
-    return NumbersOfPlayers;
-}(React.Component));
-var mapStateToProps = function (state) { return ({ step: state.step }); };
-var mapDispatchToProps = function (dispatch) { return (__assign({}, redux_1.bindActionCreators({ NextStep: NextStep_1.default, SetNumbersOfPlayersAction: SetNumbersOfPlayers_1.default }, dispatch))); };
+                            React.createElement(fi_1.FiCheckSquare, { onClick: () => this.handleClick("Confirm") })))))));
+    }
+}
+const mapStateToProps = (state) => ({ step: state.step });
+const mapDispatchToProps = (dispatch) => (Object.assign({}, redux_1.bindActionCreators({ NextStep: NextStep_1.default, SetNumbersOfPlayersAction: SetNumbersOfPlayers_1.default }, dispatch)));
 exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(NumbersOfPlayers);
+
+
+/***/ }),
+
+/***/ "./src/components/SetPlayersList.tsx":
+/*!*******************************************!*\
+  !*** ./src/components/SetPlayersList.tsx ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+__webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
+const reactstrap_1 = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.es.js");
+__webpack_require__(/*! ../styles/AlignCenter.css */ "./src/styles/AlignCenter.css");
+const NextStep_1 = __importDefault(__webpack_require__(/*! ../actions/NextStep */ "./src/actions/NextStep.tsx"));
+const SetPlayers_1 = __importDefault(__webpack_require__(/*! ../actions/SetPlayers */ "./src/actions/SetPlayers.tsx"));
+const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+class SetPlayersLIst extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            fadeIn: this.props.step == "NAMESOFPLAYERS" ? true : false,
+            countOfPlayers: this.props.players
+        };
+    }
+    handleClick(type) {
+        switch (type) {
+            case "Confitm":
+                //todo null-check
+                break;
+            case "Confirm":
+                //todo confirm
+                break;
+            default:
+                break;
+        }
+    }
+    buildTableOfImages(numberOfPlayers) {
+        const rows = Array();
+        let count = 0;
+        while (count < numberOfPlayers) {
+            rows.push(React.createElement("tr", { key: count },
+                React.createElement("td", null, count + 1),
+                React.createElement("td", null,
+                    React.createElement(reactstrap_1.Input, { id: `player_${count}` }))));
+            count++;
+        }
+        return rows;
+    }
+    render() {
+        const rows = this.buildTableOfImages(this.state.countOfPlayers);
+        if (rows.length != 0) {
+            return (React.createElement("div", { className: "container" },
+                React.createElement(reactstrap_1.Fade, { in: this.state.fadeIn, tag: "h5", className: "mt-3", timeout: 1000 },
+                    React.createElement(reactstrap_1.Table, null,
+                        React.createElement("thead", null,
+                            React.createElement("tr", null,
+                                React.createElement("th", null, "#"),
+                                React.createElement("th", null, "\u0418\u0433\u0440\u043E\u043A"))),
+                        React.createElement("tbody", null, rows)))));
+        }
+        else {
+            return (React.createElement("div", null, "No elements..."));
+        }
+    }
+}
+const mapStateToProps = (state) => ({ step: state.step, players: state.players });
+const mapDispatchToProps = (dispatch) => (Object.assign({}, redux_1.bindActionCreators({ NextStep: NextStep_1.default, SetPlayers: SetPlayers_1.default }, dispatch)));
+exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(SetPlayersLIst);
 
 
 /***/ }),
@@ -36371,10 +36398,29 @@ exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(Num
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.numberofplayers_reducer = function (state, action) {
-    if (state === void 0) { state = null; }
+exports.numberofplayers_reducer = (state = null, action) => {
     switch (action.type) {
         case "playersCounter": return action.playersCounter;
+        default: return state;
+    }
+};
+
+
+/***/ }),
+
+/***/ "./src/reducers/Players.tsx":
+/*!**********************************!*\
+  !*** ./src/reducers/Players.tsx ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.players_reducer = (state = null, action) => {
+    switch (action.type) {
+        case "players": return action.players;
         default: return state;
     }
 };
@@ -36392,8 +36438,7 @@ exports.numberofplayers_reducer = function (state, action) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.step_reducer = function (state, action) {
-    if (state === void 0) { state = null; }
+exports.step_reducer = (state = null, action) => {
     switch (action.type) {
         case "step": return action.step;
         default: return state;
@@ -36413,16 +36458,18 @@ exports.step_reducer = function (state, action) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-var Step_1 = __webpack_require__(/*! ../reducers/Step */ "./src/reducers/Step.tsx");
-var NumberOfPlayers_1 = __webpack_require__(/*! ../reducers/NumberOfPlayers */ "./src/reducers/NumberOfPlayers.tsx");
-exports.default = (function () {
-    var store = redux_1.createStore(redux_1.combineReducers({
+const redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+const Step_1 = __webpack_require__(/*! ../reducers/Step */ "./src/reducers/Step.tsx");
+const NumberOfPlayers_1 = __webpack_require__(/*! ../reducers/NumberOfPlayers */ "./src/reducers/NumberOfPlayers.tsx");
+const Players_1 = __webpack_require__(/*! ../reducers/Players */ "./src/reducers/Players.tsx");
+exports.default = () => {
+    const store = redux_1.createStore(redux_1.combineReducers({
         step: Step_1.step_reducer,
-        players: NumberOfPlayers_1.numberofplayers_reducer
+        players: NumberOfPlayers_1.numberofplayers_reducer,
+        playersList: Players_1.players_reducer,
     }));
     return store;
-});
+};
 
 
 /***/ }),
