@@ -5,6 +5,7 @@ import SetPlayersList from "./SetPlayersList";
 import NextStep from '../actions/NextStep';
 import { connect } from 'react-redux';
 import { Dispatch, bindActionCreators } from 'redux';
+import CheckPlayers from "./CheckPlayers";
 
 class Mainflow extends React.Component<Props, StateProps>  {
 
@@ -15,6 +16,7 @@ class Mainflow extends React.Component<Props, StateProps>  {
                     {this.props.step=="GREETINGS" && <Greetings />}
                     {this.props.step=="NUMBEROFPLAYERS" && <NumbersOfPlayers />}
                     {this.props.step=="NAMESOFPLAYERS" && <SetPlayersList />}
+                    {this.props.step=="CHECKNAMESOFPLAYERS" && <CheckPlayers />}
                 </div>
         );
     };

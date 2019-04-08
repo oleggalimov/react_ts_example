@@ -40,7 +40,7 @@ class NumbersOfPlayers extends React.Component<Props, StateProps> {
     render() {
         return (
             <div className="container">
-                <Fade in={this.props.step == "NUMBEROFPLAYERS" ? true : false} tag="h5" className="mt-3" timeout={1000}>
+                <Fade in={this.state.fadeIn} tag="h5" className="mt-3" timeout={1000}>
                     <Row>
                         <Col>
                             <div className="playerscounter question">

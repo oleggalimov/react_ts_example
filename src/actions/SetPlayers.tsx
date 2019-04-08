@@ -1,4 +1,4 @@
-const SetPlayersAction = (playersProps:Map<string, number>|null)=>(
+const SetPlayersAction = (playersProps:Array<[string,number]>|null)=>(
     {
         type:'players',
         players:playersProps 
