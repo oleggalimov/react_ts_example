@@ -1,12 +1,11 @@
 import * as React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Fade, Container, Row, Col, Input, Jumbotron, Table } from 'reactstrap';
+import { Fade, Table } from 'reactstrap';
 import "../styles/AlignCenter.css";
 import NextStep from '../actions/NextStep';
 import SetPlayers from '../actions/SetPlayers';
 import { connect } from 'react-redux';
 import { Dispatch, bindActionCreators } from 'redux';
-import Button from 'reactstrap/lib/Button';
 import { FiCheckSquare, FiXSquare } from "react-icons/fi";
 import { IconContext } from 'react-icons';
 
@@ -23,10 +22,10 @@ class CheckPlayers extends React.Component<Props, StateProps> {
         this.props.NextStep("NAMESOFPLAYERS");
     }
     confirm = () => {
-        this.props.SetPlayers(this.state.playersList);
+        this.props.NextStep("GAME");
     }
 
-    buildTableOfImages(playersListFromProp: Array<[string, number]>): Array<any> {
+    contentTableBuilder(playersListFromProp: Array<[string, number]>): Array<any> {
 
         const rows = Array();
         let count = 0;
@@ -47,7 +46,7 @@ class CheckPlayers extends React.Component<Props, StateProps> {
     }
 
     render() {
-        const rows = this.buildTableOfImages(this.state.playersList);
+        const rows = this.contentTableBuilder(this.state.playersList);
         if (rows.length != 0) {
             return (
                 <div className="container">
@@ -55,7 +54,7 @@ class CheckPlayers extends React.Component<Props, StateProps> {
                         <b>Список игроков верный?</b>
                     </p>
 
-                    <Fade in={this.state.fadeIn} tag="h5" className="mt-3" timeout={1000}>
+                    <Fade in={this.state.fadeIn} tag="h5" className="mt-3" timeout={700}>
                         <Table className="playerslist table">
                             <thead>
                                 <tr>

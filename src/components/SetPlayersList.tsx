@@ -1,6 +1,6 @@
 import * as React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Fade, Container, Row, Col, Input, Jumbotron, Table } from 'reactstrap';
+import { Fade, Input, Table } from 'reactstrap';
 import "../styles/AlignCenter.css";
 import NextStep from '../actions/NextStep';
 import SetPlayers from '../actions/SetPlayers';
@@ -37,7 +37,7 @@ class SetPlayersList extends React.Component<Props, StateProps> {
         }
     }
 
-    buildTableOfImages(numberOfPlayers: number|null, playersListFromProp:Array<[string,number]>|null): Array<any> {
+    contentTableBuilder(numberOfPlayers: number|null, playersListFromProp:Array<[string,number]>|null): Array<any> {
 
         const rows = Array();
         let count = 0;
@@ -77,9 +77,9 @@ class SetPlayersList extends React.Component<Props, StateProps> {
     render() {
         let rows:Array<any>;
         if (this.props.playersListProp!=null) {
-            rows = this.buildTableOfImages(null, this.props.playersListProp);
+            rows = this.contentTableBuilder(null, this.props.playersListProp);
         } else {
-            rows = this.buildTableOfImages(this.state.countOfPlayers, null);
+            rows = this.contentTableBuilder(this.state.countOfPlayers, null);
         }
         if (rows.length != 0) {
             return (
@@ -88,7 +88,7 @@ class SetPlayersList extends React.Component<Props, StateProps> {
                         <b>Введи имена игроков и нажми "Ok"</b>
                     </p>
 
-                    <Fade in={this.state.fadeIn} tag="h5" className="mt-3" timeout={1000}>
+                    <Fade in={this.state.fadeIn} tag="h5" className="mt-3" timeout={700}>
                         <Table>
                             <thead>
                                 <tr>

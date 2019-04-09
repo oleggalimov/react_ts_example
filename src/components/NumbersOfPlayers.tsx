@@ -1,6 +1,6 @@
 import * as React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Fade, Container, Row, Col, Input, Jumbotron } from 'reactstrap';
+import { Fade,  Row, Col } from 'reactstrap';
 import "../styles/AlignCenter.css";
 import NextStep from '../actions/NextStep';
 import SetNumbersOfPlayersAction from '../actions/SetNumbersOfPlayers';
@@ -40,7 +40,7 @@ class NumbersOfPlayers extends React.Component<Props, StateProps> {
     render() {
         return (
             <div className="container">
-                <Fade in={this.state.fadeIn} tag="h5" className="mt-3" timeout={1000}>
+                <Fade in={this.state.fadeIn} tag="h5" className="mt-3" timeout={700}>
                     <Row>
                         <Col>
                             <div className="playerscounter question">

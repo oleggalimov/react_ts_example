@@ -1,6 +1,6 @@
 import * as React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Fade, Container, Row, Col, Input } from 'reactstrap';
+import { Fade, Row, Col } from 'reactstrap';
 import "../styles/AlignCenter.css"
 import Button from 'reactstrap/lib/Button';
 import NextStep from '../actions/NextStep';
@@ -25,7 +25,7 @@ class Greetings extends React.Component<Props, StateProps> {
     render() {
         return (
             <div className="container">
-                <Fade in={this.props.step=="GREETINGS"? true:false} tag="h1" className="greeting" timeout={1000} >
+                <Fade in={this.props.step=="GREETINGS"? true:false} tag="h1" className="greeting" timeout={700} >
                     <Row>
                         <Col>
                             <p>
@@ -34,7 +34,7 @@ class Greetings extends React.Component<Props, StateProps> {
                         </Col>
 
                     </Row>
-                    <Fade in={this.state.fadeIn} className="mt-3 greeting button" timeout={2000} >
+                    <Fade in={this.state.fadeIn} className="mt-3 greeting button" timeout={900} >
                         <Row>
                             <Col>
                                 <Button color="primary" onClick={this.toggle} size="lg">Привет</Button>

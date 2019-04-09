@@ -304,7 +304,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".greeting {\r\n    font-family: Arial, Helvetica, sans-serif;\r\n    font-size: 1.8em;\r\n    margin-top: 40%;\r\n    margin-left: 10%\r\n}\r\n.greeting.button {\r\n    margin-left: 25%;\r\n}\r\n.playerscounter.question {\r\n    margin-left: 5%;\r\n    font-size: 1.5em;\r\n    text-align: center;\r\n}\r\n.playerscounter.counter {\r\n    font-size: 3em;\r\n    margin-left: 45%;\r\n}\r\n.playerscounter.button.add {\r\n    margin-top: 10%;\r\n    margin-left: 40%;\r\n    font-size: 3em;\r\n}\r\n.playerslist.text {\r\n    margin-top: 2%;\r\n    margin-left: 2%;\r\n    font-size: 1.5em;\r\n    text-align: center;\r\n}\r\n.playerslist.table {     \r\n    table-layout: fixed;     \r\n    width:100% } \r\n.playerslist.table.td {\r\n    word-break: break-all;\r\n}\r\n@media (min-width: 375px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 2em;\r\n        margin-top: 30%;\r\n    }\r\n    \r\n}\r\n\r\n@media (min-width: 768px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 3em;\r\n        margin-top: 30%;\r\n    }\r\n}\r\n\r\n@media (min-width: 992px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 450%;\r\n        margin-top: 30%;\r\n    }\r\n}\r\n\r\n@media (min-width: 1200px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 550%;\r\n        margin-top: 30%;\r\n\r\n    }\r\n}", ""]);
+exports.push([module.i, ".greeting {\r\n    font-family: Arial, Helvetica, sans-serif;\r\n    font-size: 1.8em;\r\n    margin-top: 40%;\r\n    margin-left: 10%\r\n}\r\n.greeting.button {\r\n    margin-left: 25%;\r\n}\r\n.playerscounter.question {\r\n    margin-left: 5%;\r\n    font-size: 1.5em;\r\n    text-align: center;\r\n}\r\n.playerscounter.counter {\r\n    font-size: 3em;\r\n    margin-left: 45%;\r\n}\r\n.playerscounter.button.add {\r\n    margin-top: 10%;\r\n    margin-left: 40%;\r\n    font-size: 3em;\r\n}\r\n.playerslist.text {\r\n    margin-top: 2%;\r\n    margin-left: 2%;\r\n    font-size: 1.5em;\r\n    text-align: center;\r\n}\r\n.playerslist.table {     \r\n    table-layout: fixed;     \r\n    width:100% } \r\n.playerslist.table.td {\r\n    word-break: break-all;\r\n}\r\n.scorecontroller {\r\n    width:100%;\r\n    text-align: center;\r\n}\r\n@media (min-width: 375px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 2em;\r\n        margin-top: 30%;\r\n    }\r\n    \r\n}\r\n\r\n@media (min-width: 768px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 3em;\r\n        margin-top: 30%;\r\n    }\r\n}\r\n\r\n@media (min-width: 992px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 450%;\r\n        margin-top: 30%;\r\n    }\r\n}\r\n\r\n@media (min-width: 1200px) { \r\n    .greeting {\r\n        font-family: Arial, Helvetica, sans-serif;\r\n        font-size: 550%;\r\n        margin-top: 30%;\r\n\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -36157,14 +36157,14 @@ class CheckPlayers extends React.Component {
             this.props.NextStep("NAMESOFPLAYERS");
         };
         this.confirm = () => {
-            this.props.SetPlayers(this.state.playersList);
+            this.props.NextStep("GAME");
         };
         this.state = {
             fadeIn: this.props.step == "CHECKNAMESOFPLAYERS" ? true : false,
             playersList: (this.props.playersListProp == null || this.props.playersListProp.length == 0) ? new Array() : this.props.playersListProp
         };
     }
-    buildTableOfImages(playersListFromProp) {
+    contentTableBuilder(playersListFromProp) {
         const rows = Array();
         let count = 0;
         playersListFromProp.forEach(item => {
@@ -36176,12 +36176,12 @@ class CheckPlayers extends React.Component {
         return rows;
     }
     render() {
-        const rows = this.buildTableOfImages(this.state.playersList);
+        const rows = this.contentTableBuilder(this.state.playersList);
         if (rows.length != 0) {
             return (React.createElement("div", { className: "container" },
                 React.createElement("p", { className: "playerslist text" },
                     React.createElement("b", null, "\u0421\u043F\u0438\u0441\u043E\u043A \u0438\u0433\u0440\u043E\u043A\u043E\u0432 \u0432\u0435\u0440\u043D\u044B\u0439?")),
-                React.createElement(reactstrap_1.Fade, { in: this.state.fadeIn, tag: "h5", className: "mt-3", timeout: 1000 },
+                React.createElement(reactstrap_1.Fade, { in: this.state.fadeIn, tag: "h5", className: "mt-3", timeout: 700 },
                     React.createElement(reactstrap_1.Table, { className: "playerslist table" },
                         React.createElement("thead", null,
                             React.createElement("tr", null,
@@ -36253,11 +36253,11 @@ class Greetings extends React.Component {
     }
     render() {
         return (React.createElement("div", { className: "container" },
-            React.createElement(reactstrap_1.Fade, { in: this.props.step == "GREETINGS" ? true : false, tag: "h1", className: "greeting", timeout: 1000 },
+            React.createElement(reactstrap_1.Fade, { in: this.props.step == "GREETINGS" ? true : false, tag: "h1", className: "greeting", timeout: 700 },
                 React.createElement(reactstrap_1.Row, null,
                     React.createElement(reactstrap_1.Col, null,
                         React.createElement("p", null, "\u041F\u0440\u0438\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044E \u0412\u0430\u0441!"))),
-                React.createElement(reactstrap_1.Fade, { in: this.state.fadeIn, className: "mt-3 greeting button", timeout: 2000 },
+                React.createElement(reactstrap_1.Fade, { in: this.state.fadeIn, className: "mt-3 greeting button", timeout: 900 },
                     React.createElement(reactstrap_1.Row, null,
                         React.createElement(reactstrap_1.Col, null,
                             React.createElement(Button_1.default, { color: "primary", onClick: this.toggle, size: "lg" }, "\u041F\u0440\u0438\u0432\u0435\u0442")))))));
@@ -36292,13 +36292,15 @@ const NextStep_1 = __importDefault(__webpack_require__(/*! ../actions/NextStep *
 const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 const redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 const CheckPlayers_1 = __importDefault(__webpack_require__(/*! ./CheckPlayers */ "./src/components/CheckPlayers.tsx"));
+const ScoreTable_1 = __importDefault(__webpack_require__(/*! ./ScoreTable */ "./src/components/ScoreTable.tsx"));
 class Mainflow extends react_1.default.Component {
     render() {
         return (react_1.default.createElement("div", null,
             this.props.step == "GREETINGS" && react_1.default.createElement(Greetings_1.default, null),
             this.props.step == "NUMBEROFPLAYERS" && react_1.default.createElement(NumbersOfPlayers_1.default, null),
             this.props.step == "NAMESOFPLAYERS" && react_1.default.createElement(SetPlayersList_1.default, null),
-            this.props.step == "CHECKNAMESOFPLAYERS" && react_1.default.createElement(CheckPlayers_1.default, null)));
+            this.props.step == "CHECKNAMESOFPLAYERS" && react_1.default.createElement(CheckPlayers_1.default, null),
+            this.props.step == "GAME" && react_1.default.createElement(ScoreTable_1.default, null)));
     }
     ;
 }
@@ -36367,7 +36369,7 @@ class NumbersOfPlayers extends React.Component {
     }
     render() {
         return (React.createElement("div", { className: "container" },
-            React.createElement(reactstrap_1.Fade, { in: this.state.fadeIn, tag: "h5", className: "mt-3", timeout: 1000 },
+            React.createElement(reactstrap_1.Fade, { in: this.state.fadeIn, tag: "h5", className: "mt-3", timeout: 700 },
                 React.createElement(reactstrap_1.Row, null,
                     React.createElement(reactstrap_1.Col, null,
                         React.createElement("div", { className: "playerscounter question" }, "\u0421\u043A\u043E\u043B\u044C\u043A\u043E \u0431\u0443\u0434\u0435\u0442 \u0438\u0433\u0440\u043E\u043A\u043E\u0432?"))),
@@ -36391,6 +36393,135 @@ class NumbersOfPlayers extends React.Component {
 const mapStateToProps = (state) => ({ step: state.step });
 const mapDispatchToProps = (dispatch) => (Object.assign({}, redux_1.bindActionCreators({ NextStep: NextStep_1.default, SetNumbersOfPlayersAction: SetNumbersOfPlayers_1.default }, dispatch)));
 exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(NumbersOfPlayers);
+
+
+/***/ }),
+
+/***/ "./src/components/ScoreTable.tsx":
+/*!***************************************!*\
+  !*** ./src/components/ScoreTable.tsx ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+__webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
+const reactstrap_1 = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/dist/reactstrap.es.js");
+__webpack_require__(/*! ../styles/AlignCenter.css */ "./src/styles/AlignCenter.css");
+const NextStep_1 = __importDefault(__webpack_require__(/*! ../actions/NextStep */ "./src/actions/NextStep.tsx"));
+const SetPlayers_1 = __importDefault(__webpack_require__(/*! ../actions/SetPlayers */ "./src/actions/SetPlayers.tsx"));
+const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+const fi_1 = __webpack_require__(/*! react-icons/fi */ "./node_modules/react-icons/fi/index.js");
+const react_icons_1 = __webpack_require__(/*! react-icons */ "./node_modules/react-icons/lib/index.js");
+class ScoreTable extends React.Component {
+    constructor(props) {
+        super(props);
+        this.changeValue = (newValue) => {
+            let tempVal = Number.parseInt(newValue);
+            if (!Number.isNaN(tempVal)) {
+                this.setState({
+                    currentValue: tempVal
+                });
+            }
+        };
+        this.confirmRejectValue = (confirm) => {
+            if (confirm == "CONFIRM") {
+                let increment = this.state.currentValue;
+                let tempArray = [...this.state.playersList];
+                let player = this.state.activePlayer;
+                if (increment != null) {
+                    tempArray[player][1] = tempArray[player][1] + increment;
+                }
+                this.setState({
+                    playersList: tempArray,
+                    currentValue: null
+                });
+            }
+            else if (confirm == "REJECT") {
+                this.setState({
+                    currentValue: null
+                });
+            }
+        };
+        this.selectPlayer = (event) => {
+            const playerNumber = Number.parseInt(event.target.id);
+            if (playerNumber != NaN) {
+                this.setState({
+                    activePlayer: playerNumber
+                });
+            }
+        };
+        this.state = {
+            fadeIn: this.props.step == "GAME" ? true : false,
+            playersList: (this.props.playersListProp == null || this.props.playersListProp.length == 0) ? new Array() : this.props.playersListProp,
+            activePlayer: 0,
+            currentValue: null
+        };
+    }
+    contentTableBuilder(playersListFromProp) {
+        const rows = Array();
+        let count = 0;
+        playersListFromProp.forEach(item => {
+            rows.push(React.createElement("tr", { key: count + "_row" },
+                React.createElement("td", null, count + 1),
+                React.createElement("td", { id: count.toString(), className: "playerslist table td", onClick: this.selectPlayer }, item[0]),
+                React.createElement("td", { className: "playerslist table td", style: { textAlign: "right" } }, item[1])));
+            count++;
+        });
+        return rows;
+    }
+    render() {
+        const rows = this.contentTableBuilder(this.state.playersList);
+        if (rows.length != 0) {
+            return (React.createElement("div", { className: "container" },
+                React.createElement(reactstrap_1.Fade, { in: this.state.fadeIn, tag: "h5", className: "mt-3", timeout: 700 },
+                    React.createElement(reactstrap_1.Table, { className: "playerslist table" },
+                        React.createElement("thead", null,
+                            React.createElement("tr", null,
+                                React.createElement("th", null, "#"),
+                                React.createElement("th", null, "\u0418\u0433\u0440\u043E\u043A"),
+                                React.createElement("th", { style: { textAlign: "right" } }, "\u0421\u0447\u0435\u0442"))),
+                        React.createElement("tbody", null, rows))),
+                React.createElement("br", null),
+                React.createElement(reactstrap_1.Fade, { in: this.state.fadeIn, tag: "h5", className: "mt-3", timeout: 900 },
+                    React.createElement("div", null,
+                        React.createElement("table", { className: "scorecontroller" },
+                            React.createElement("tbody", null,
+                                React.createElement("tr", null,
+                                    React.createElement("td", { colSpan: 3 },
+                                        React.createElement("b", null, this.state.playersList[this.state.activePlayer][0]))),
+                                React.createElement("tr", null,
+                                    React.createElement("td", null,
+                                        React.createElement(react_icons_1.IconContext.Provider, { value: { color: "red", size: "3em" } },
+                                            React.createElement(fi_1.FiXSquare, { onClick: () => this.confirmRejectValue("REJECT") }))),
+                                    React.createElement("td", null,
+                                        React.createElement(reactstrap_1.Input, { type: "number", value: this.state.currentValue != undefined ? this.state.currentValue : "", onChange: e => this.changeValue(e.target.value) })),
+                                    React.createElement("td", null,
+                                        React.createElement(react_icons_1.IconContext.Provider, { value: { color: "green", size: "3em" } },
+                                            React.createElement(fi_1.FiCheckSquare, { onClick: () => this.confirmRejectValue("CONFIRM") }))))))))));
+        }
+        else {
+            return (React.createElement("div", null, "No elements..."));
+        }
+    }
+}
+const mapStateToProps = (state) => ({ step: state.step, players: state.players, playersListProp: state.playersList });
+const mapDispatchToProps = (dispatch) => (Object.assign({}, redux_1.bindActionCreators({ NextStep: NextStep_1.default, SetPlayers: SetPlayers_1.default }, dispatch)));
+exports.default = react_redux_1.connect(mapStateToProps, mapDispatchToProps)(ScoreTable);
 
 
 /***/ }),
@@ -36451,7 +36582,7 @@ class SetPlayersList extends React.Component {
             playersList: (this.props.playersListProp == null || this.props.playersListProp.length == 0) ? new Array() : this.props.playersListProp
         };
     }
-    buildTableOfImages(numberOfPlayers, playersListFromProp) {
+    contentTableBuilder(numberOfPlayers, playersListFromProp) {
         const rows = Array();
         let count = 0;
         if (numberOfPlayers != null) {
@@ -36477,16 +36608,16 @@ class SetPlayersList extends React.Component {
     render() {
         let rows;
         if (this.props.playersListProp != null) {
-            rows = this.buildTableOfImages(null, this.props.playersListProp);
+            rows = this.contentTableBuilder(null, this.props.playersListProp);
         }
         else {
-            rows = this.buildTableOfImages(this.state.countOfPlayers, null);
+            rows = this.contentTableBuilder(this.state.countOfPlayers, null);
         }
         if (rows.length != 0) {
             return (React.createElement("div", { className: "container" },
                 React.createElement("p", { className: "playerslist text" },
                     React.createElement("b", null, "\u0412\u0432\u0435\u0434\u0438 \u0438\u043C\u0435\u043D\u0430 \u0438\u0433\u0440\u043E\u043A\u043E\u0432 \u0438 \u043D\u0430\u0436\u043C\u0438 \"Ok\"")),
-                React.createElement(reactstrap_1.Fade, { in: this.state.fadeIn, tag: "h5", className: "mt-3", timeout: 1000 },
+                React.createElement(reactstrap_1.Fade, { in: this.state.fadeIn, tag: "h5", className: "mt-3", timeout: 700 },
                     React.createElement(reactstrap_1.Table, null,
                         React.createElement("thead", null,
                             React.createElement("tr", null,

@@ -6,6 +6,7 @@ import NextStep from '../actions/NextStep';
 import { connect } from 'react-redux';
 import { Dispatch, bindActionCreators } from 'redux';
 import CheckPlayers from "./CheckPlayers";
+import ScoreTable from "./ScoreTable";
 
 class Mainflow extends React.Component<Props, StateProps>  {
 
@@ -17,6 +18,7 @@ class Mainflow extends React.Component<Props, StateProps>  {
                     {this.props.step=="NUMBEROFPLAYERS" && <NumbersOfPlayers />}
                     {this.props.step=="NAMESOFPLAYERS" && <SetPlayersList />}
                     {this.props.step=="CHECKNAMESOFPLAYERS" && <CheckPlayers />}
+                    {this.props.step=="GAME" && <ScoreTable />}
                 </div>
         );
     };
